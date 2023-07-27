@@ -27,6 +27,7 @@ def encode_number(number):
         else:
             result = '1' + octet_data + result
 
+
     sign_bit = '0'
 
     if number < 0:
@@ -34,9 +35,11 @@ def encode_number(number):
 
 
     if last_octet:
-        result = sign_bit + '0' + (6 - len(bit_string)) * '0' + bit_string + result
+        result = '0' + sign_bit + (6 - len(bit_string)) * '0' + bit_string + result
     else:
-        result = sign_bit + '1' + (6 - len(bit_string)) * '0' + bit_string + result
+        result = '1' + sign_bit + (6 - len(bit_string)) * '0' + bit_string + result
+
+
 
     return result
 
@@ -56,11 +59,11 @@ def decode(bit_string):
             if first_octet:
                 octet_data = sub_string[2:]
 
-                if sub_string[0] == '1':
-                    sign = '-'
-                
-                if sub_string[1] == '0':
+                if sub_string[0] == '0':
                     last_octet = True
+                
+                if sub_string[1] == '1':
+                    sign = '-'
 
                 first_octet = False
             
@@ -80,7 +83,7 @@ def decode(bit_string):
     return numbers
 
 if __name__ == "__main__":
-    numbers = [-1848, 0, -0, -1, 68888888888888498, 4444]
+    numbers = [1, 18, -356, 0, 0, -1, 47]
     print(numbers)
 
     encoded = encode(numbers)

@@ -1,7 +1,8 @@
 def encode(num_arr):
     result = ''
 
-    int_bit_size = bites_required(num_arr)
+    #int_bit_size = bites_required(num_arr)
+    int_bit_size = 2
 
     for number in num_arr:
         bin_number = list(format(abs(int(number)), f'0{int_bit_size*8}b'))
@@ -32,12 +33,12 @@ def bites_required(num_arr):
 
     return nof_bites
 
-def decode(bit_string, int_bit_size):
+def decode(bit_string, int_bite_size):
     numbers = []
 
     while len(bit_string) > 0:
-        bit_slice = list(bit_string[:int_bit_size * 8])
-        bit_string = bit_string[int_bit_size * 8:]
+        bit_slice = list(bit_string[:int_bite_size * 8])
+        bit_string = bit_string[int_bite_size * 8:]
 
         if bit_slice[0] == '1':
             bit_slice[0] = '0'
@@ -48,7 +49,7 @@ def decode(bit_string, int_bit_size):
     return(numbers)
 
 if __name__ == "__main__":
-    numbers = [-1848, 0, -0, -1, 68888888888888498, 4444]
+    numbers = [1, 18, -356, 0, 0, -1, 47]
     print(numbers)
 
     encoded, int_len = encode(numbers)
@@ -56,5 +57,3 @@ if __name__ == "__main__":
 
     decoded = decode(encoded, int_len)
     print(decoded)
-
-    
