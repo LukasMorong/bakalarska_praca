@@ -1,3 +1,12 @@
+/*
+ * Filename: decode_isolated.c
+ * Author: Lukas Morong, xmoron01
+ * Year: 2023
+ * Description: 
+ *     Rice golomb kodovanie, izolovana implementacia na ucely urcenia velkosti
+ *     vysledneho asembleru, s optimalizaciou parametru
+ */
+
 #include <stdint.h>
 
 #define SAMPLE_COUNT 624

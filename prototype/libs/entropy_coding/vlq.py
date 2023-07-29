@@ -1,6 +1,15 @@
-#ABvvvvvv Bvvvvvvv
-#A - sign
-#B - octet follows
+"""
+File name: vlq.py
+Author: Lukas Morong, xmoron01
+Year: 2023
+Description: Python prototype implementation variable length coding
+            uses following implementation:
+                #ABvvvvvv Bvvvvvvv ...
+                #A - sign
+                #B - octet follows
+            
+"""
+
 
 def encode(num_arr):
     result = ''

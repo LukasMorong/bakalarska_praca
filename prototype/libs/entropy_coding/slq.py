@@ -1,3 +1,12 @@
+"""
+File name: slq.py
+Author: Lukas Morong, xmoron01
+Year: 2023
+Description: Static length coding
+            package used to imitate c language static size datatypes
+            is used to save values in bitfield and enables to calculate total length
+"""
+
 def encode(num_arr):
     result = ''
 

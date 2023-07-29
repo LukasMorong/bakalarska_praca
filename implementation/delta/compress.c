@@ -1,3 +1,11 @@
+/*
+ * Filename: compress.c
+ * Author: Lukas Morong, xmoron01
+ * Year: 2023
+ * Description: 
+ *     Delta kodovanie kompresia
+ */
+
 #include <stdint.h>
 #include <stddef.h>
 #include <stdlib.h>

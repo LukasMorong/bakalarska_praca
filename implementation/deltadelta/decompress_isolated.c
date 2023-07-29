@@ -1,3 +1,12 @@
+/*
+ * Filename: decompress_isolated.c
+ * Author: Lukas Morong, xmoron01
+ * Year: 2023
+ * Description: 
+ *     DeltaDelta kodovanie dekompresia, izolovana implementacia na ucely urcenia velkosti
+ *     vysledneho asembleru
+ */
+
 #include <stdint.h>
 
 #define SAMPLE_COUNT 624

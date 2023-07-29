@@ -1,3 +1,12 @@
+"""
+File name: split_data.py
+Author: Lukas Morong, xmoron01
+Year: 2023
+Description: Support functions for I/Q samples manipulation
+            splitting by antena, splitting by slots
+            support functions for analysis
+"""
+
 import zipfile
 import json
 

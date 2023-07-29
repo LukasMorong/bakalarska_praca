@@ -1,3 +1,12 @@
+/*
+ * Filename: decode_isolated.c
+ * Author: Lukas Morong, xmoron01
+ * Year: 2023
+ * Description: 
+ *     VLQ dekodovanie, izolovana implementacia na ucely urcenia velkosti
+ *     vysledneho asembleru
+ */
+
 #include <stdint.h>
 #include <stdbool.h>
 

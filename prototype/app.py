@@ -1,3 +1,11 @@
+"""
+File name: app.py
+Author: Lukas Morong, xmoron01
+Year: 2023
+Description: Allows user to choose compression/decompression stack
+            by passing IQ samples, ant switching array and options tuple 
+"""
+
 import argparse
 import os
 import math
@@ -9,6 +17,8 @@ from libs.entropy_coding import slq
 from libs.entropy_coding import vlq
 from libs.entropy_coding import rice_golomb
 from libs.data_transformation import delta_encoding
+from libs.data_transformation import predictive_coding
+from libs.data_transformation import predictive_experimental
 
 
 #input data
@@ -20,7 +30,7 @@ from libs.data_transformation import delta_encoding
 #ant - how antenas were sampled
 
 #options (t, e)
-# transformation - t: [0 - none, 1 - delta, 2 - deltadelta, 3 - predictive, 4-predictivedelta, 5-predictivedeltadelta]
+# transformation - t: [0 - none, 1 - delta, 2 - deltadelta, 3 - predictive, 4-experimental]
 # entropy coding - e: [0 - none (16bit), 1 - vlq, 2 - rice golomb]
 
 # output - bitString
@@ -42,15 +52,29 @@ def compress(inputData, ant, options):
         i_encoded = delta_encoding.encode(delta_encoding.encode(inputData['i']))
         q_encoded = delta_encoding.encode(delta_encoding.encode(inputData['q']))
         transformed = i_encoded + q_encoded
-    elif e == 3:
-        #predictive
+    elif t == 3:
+        data_i = inputData['i']
+        data_q = inputData['q']
+        transformed = delta_encoding.encode(delta_encoding.encode(np.append(predictive_coding.compressAdaptive(data_i, ant), predictive_coding.compressAdaptive(data_q, ant))))
         pass
-    elif e == 4:
-        #predictive delta
+    elif t == 4:
+        sine1 = predictive_experimental.sine_predictor(inputData['i'], ant)
+        sine2 = predictive_experimental.sine_predictor_wf(inputData['i'], ant, sine1['freq'])
+
+
+        predicted_vals = predictive_experimental.mix_clean(sine1, sine2, ant)
+        result_i = predictive_experimental.diff(inputData['i'], predicted_vals)
+
+        sine1 = predictive_experimental.sine_predictor(inputData['q'], ant)
+        sine2 = predictive_experimental.sine_predictor_wf(inputData['q'], ant, sine1['freq'])
+
+
+        predicted_vals = predictive_experimental.mix_clean(sine1, sine2, ant)
+        result_q = predictive_experimental.diff(inputData['q'], predicted_vals)
+
+        transformed = delta_encoding.encode(delta_encoding.encode(np.append(result_i, result_q)))
         pass
-    elif e == 5:
-        #predictive deltadelta
-        pass
+
     
 
     #entropy coding

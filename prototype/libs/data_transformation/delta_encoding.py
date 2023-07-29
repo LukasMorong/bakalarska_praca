@@ -1,3 +1,10 @@
+"""
+File name: delta_encoding.py
+Author: Lukas Morong, xmoron01
+Year: 2023
+Description: Python prototype implementation of delta encoding
+"""
+
 import numpy as np
 
 def encode(data):

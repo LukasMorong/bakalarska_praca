@@ -1,3 +1,13 @@
+/*
+ * Filename: compress_isolated.c
+ * Author: Lukas Morong, xmoron01
+ * Year: 2023
+ * Description: 
+ *     Adaptivne Slovnikove Prediktivne kodovanie kompresia, 
+ *     izolovana implementacia na ucely urcenia velkosti
+ *     vysledneho asembleru
+ */
+
 #include <stdint.h>
 #include <stdlib.h>
 

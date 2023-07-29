@@ -1,3 +1,12 @@
+"""
+File name: rice_golomb.py
+Author: Lukas Morong, xmoron01
+Year: 2023
+Description: Python prototype implementation of rice-golomb coding
+            contains all functions needed to encode and decode
+            contains function for calculating optimal parameter
+"""
+
 from math import floor, log2
 
 

@@ -1,3 +1,11 @@
+/*
+ * Filename: decode.c
+ * Author: Lukas Morong, xmoron01
+ * Year: 2023
+ * Description: 
+ *     Rice golomb kodovanie
+ */
+
 #include <stdint.h>
 #include <stddef.h>
 #include <stdlib.h>

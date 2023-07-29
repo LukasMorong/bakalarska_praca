@@ -1,3 +1,11 @@
+/*
+ * Filename: encode.c
+ * Author: Lukas Morong, xmoron01
+ * Year: 2023
+ * Description: 
+ *     Rice golomb dekodovanie
+ */
+
 #include <stdint.h>
 #include <stddef.h>
 #include <stdlib.h>

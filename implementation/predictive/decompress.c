@@ -1,3 +1,11 @@
+/*
+ * Filename: decompress.c
+ * Author: Lukas Morong, xmoron01
+ * Year: 2023
+ * Description: 
+ *     Adaptivne Slovnikove Prediktivne kodovanie dekompresia
+ */
+
 #include <stdint.h>
 #include <stddef.h>
 #include <stdlib.h>
